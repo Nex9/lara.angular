@@ -1,0 +1,126 @@
+
+
+main.home
+  // general styles
+
+
+  .row
+    display: block
+    .pageWidget
+      display: flex
+      align-items: center
+      flex-direction: row
+      margin-bottom: 5em
+      .media
+        flex: 0 0 60%
+      .caption
+        flex: 0 0 40%
+        text-align: left
+      @include max-screen($xsmall)
+        display: block
+        .caption
+          margin-top: 1em
+
+    &:nth-child(even)
+      .pageWidget
+        flex-direction: row-reverse
+        .caption
+          padding-right: 2em
+          @include max-screen($xsmall)
+            padding: 0
+
+    &:nth-child(odd)
+      .pageWidget
+        .caption
+          padding-left: 2em
+          @include max-screen($xsmall)
+            padding: 0
+
+    // &:last-child
+    //   margin-bottom: calc(100vh - 500px)
+
+    .mediaWidget
+      height: calc(90vh - #{$header-height})
+      overflow: hidden
+      position: relative
+      // margin: 4em auto
+      margin-bottom: 2em
+      .media
+        +pos()
+        .imago-image-content,
+        .imago-video-content
+          +pos()
+
+      .caption
+        position: absolute
+        left: 2em
+        bottom: 2em
+        text-align: left
+        font-size: 1.75em
+        // text-shadow: 1px 1px 0 rgba(white,.3), -1px -1px 0 rgba(white,.3), 1px -1px 0 rgba(white,.3), -1px 1px 0 rgba(white,.3)
+        .text
+          p
+            margin: 0
+
+    .quoteWidget
+      max-width: 580px
+      margin: 4em auto
+      .quote
+        font-family: Times, Georgia, serif
+        font-style: italic
+        font-size: 1.5em
+        line-height: 1.25em
+        letter-spacing: -0.025em
+        color: lighten(black, 30%)
+      .name
+        font-weight: 300
+        font-size: 1em
+        margin-top: 1em
+
+    .accordionWidget
+      max-width: 520px
+      margin: 1em auto
+      text-align: left
+      &.active
+        margin: 2em auto
+      h2
+        cursor: pointer
+        margin-bottom: 1em
+        text-align: center
+      .text
+        margin-top: 0
+        margin-bottom: 3em
+        p
+          text-align: justify
+
+    .bioWidget
+      max-width: 420px
+      margin: 1em auto
+      margin-top: 5em
+      .media
+        max-width: 280px
+        margin: 0 auto
+        margin-bottom: 2em
+
+    .instagramWidget
+      margin: 4em 0
+      h4
+        margin-bottom: .25em
+        font-weight: 200
+        font-size: 1em
+        // a
+        //   color: gray
+
+  .contactWidget
+    margin-top: 5em
+    margin-bottom: 5em
+    h2
+      // font-size: 1em
+    a
+      // font-size: 1.5em
+
+body.desktop main.home
+  // desktop styles
+
+body.mobile main.home
+  // mobile styles

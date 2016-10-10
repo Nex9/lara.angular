@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="673px" height="65px" viewBox="0 0 673 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="79.1450382" font-family="Futura-Light, Futura" letter-spacing="13.7404581" font-weight="300">
+        <g id="logo" fill="#000000">
+            <text id="SOHO-DENTAL">
+                <tspan x="-2" y="59">SOHO</tspan>
+                <tspan x="287.864306" y="59" font-family="Futura" font-weight="400"> DENTA</tspan>
+                <tspan x="640.90394" y="59" font-family="Futura" font-weight="400">L</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

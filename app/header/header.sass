@@ -1,0 +1,69 @@
+header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 10
+  transition: background 0.25s ease
+  max-width: $xlarge
+  margin: 0 auto
+  overflow: hidden
+  padding: 1em
+  background: rgba(white, .4)
+  @include max-screen($xsmall)
+    background: white
+  @include max-screen($xxsmall)
+    background: none
+  h1
+    text-transform: uppercase
+    font-weight: 300
+    font-size: 3em
+    float: left
+    line-height: 1em
+    margin: 0
+    transition: all .25s ease
+
+    @include max-screen($xsmall)
+      font-size: 1.5em
+    // @include max-screen($xxsmall)
+    //   font-size: 1em
+
+    span:first-child
+      font-weight: 200
+      margin-right: .25em
+
+
+  nav
+    display: block
+    text-align: right
+    top: 1em
+    right: 1em
+    z-index: 100
+    a
+      text-transform: uppercase
+      font-weight: 300
+      margin-left: 1em
+      font-size: 1em
+      &.active
+        border-bottom: 1px solid black
+
+    @include max-screen($xsmall)
+      bottom: .825em
+    @include max-screen($xxsmall)
+      position: relative
+      bottom: initial
+      top: -.125em
+      border-bottom: 1px solid transparent
+      right: initial
+      a:after
+        content: ''
+        display: block
+
+
+  &.headroom--not-top
+    @include min-screen($small)
+      h1
+        font-size: 1.5em
+
+
+  // &.headroom--unpinned

@@ -1,0 +1,96 @@
+html
+  font-size: 1em
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -ms-text-size-adjust: 100%
+  font-weight: 200
+  letter-spacing: 0.0125em
+
+html,
+input,
+button,
+textarea
+  +font-smoothing(antialiased)
+  text-rendering: optimizeLegibility
+
+body
+  color: $text-color
+  font-family: $body-font-family
+  line-height: $baseline
+
+p
+  margin: $baseline 0 0 0
+
+a,
+a:visited
+  color: $link-color
+  text-decoration: none
+  cursor: pointer
+  &:hover
+    color: $text-color
+
+hr
+  border: 0
+  background-color: $hr-color
+  height: 1px
+  margin: $baseline 0
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0
+  line-height: 1.2
+  user-select: text
+  font-weight: 300
+
+
+h1
+  font-size: $h1-size
+  text-transform: uppercase
+
+h2
+  font-size: $h2-size
+  text-transform: uppercase
+
+h3
+  font-size: $h3-size
+  text-transform: uppercase
+
+h4
+  font-size: $h4-size
+
+h5
+  font-size: $h5-size
+
+h6
+  font-size: $h6-size
+
+ul,
+ol
+  margin: 0 0 $baseline $baseline
+
+blockquote
+  color: $muted-text-color
+  font-style: italic
+  margin-left: $baseline
+  footer
+    @extend small
+    font-style: normal
+
+.text
+  a
+    // background: red
+    // font-weight: 300
+    border-bottom: 1px solid black
+
+  ul
+    padding: 0
+    margin: 0
+    li
+      padding-left: 1.25em
+      text-indent: -1.25em
+      line-height: 1.5em
+    li:before
+      content: '— '

@@ -1,0 +1,185 @@
+main.share
+  h1
+    text-transform: uppercase
+    font-size: em(24)
+
+
+  .assets
+    display: flex
+    flex-direction: row
+    justify-content: center
+    flex-wrap: wrap
+    margin: 0 auto
+
+    .asset
+      width:  300px
+      height: 260px
+      margin: 1em
+      margin-bottom: 3em
+      position: relative
+      .no-thumb
+        background: darken(white, 5%)
+        +pos(absolute, 20px, 0px, 20px, 0px)
+        box-shadow: 0 1px 5px rgba(0,0,0,0.3)
+        border: 10px solid white
+      .imago-image-content
+        background: white
+        overflow: visible
+        cursor: pointer
+        transition: transform 0.25s ease
+
+        +pos()
+
+        &:hover
+          transform: scale(1.03)
+
+        img
+          box-shadow: 0 1px 5px rgba(0,0,0,0.3)
+      .caption
+        position: absolute
+        padding-top: .5em
+        top: 100%
+        left: 0
+        right: 0
+
+        .count
+          font-size: em(13)
+          margin-right: .5em
+          border: 1px solid lighten(black, 50%)
+          border-radius: 1em
+          padding: .35em .5em 0em .5em
+          min-width: 30px
+          display: none
+
+
+      &.collection
+        .imago-image-content img
+          box-shadow: 0 1px 10px rgba(0,0,0,0.3)
+          border: 10px solid white
+        .count
+          display: inline
+
+
+
+  .actions
+    position: fixed
+    z-index: 100
+    right: 1em
+    bottom: 1em
+    button
+      background: white
+      outline: none
+.prompt
+  +pos(fixed)
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: 10
+  background: rgba(255,255,255,0.8)
+
+  .inner
+    width: 320px
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3)
+    min-height: 200px
+    padding: 50px
+    background: white
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    position: relative
+
+    h2
+      text-transform: uppercase
+      font-weight: bold
+
+    button.close
+      position: absolute
+      z-index: 1000
+      top:   15px
+      right: 15px
+      background: url("i/x.png") no-repeat
+      background-size: 100% auto
+      width:  20px
+      height: 20px
+      cursor: pointer
+      transition: transform 0.25s ease
+      border: none
+      &:hover
+        transform: rotate(90deg)
+        background-position: 0px -20px
+
+    .field
+      margin: 20px 0
+      input,
+      textarea
+        border: none
+        padding: 10px 15px
+        text-align: center
+        border-bottom: 1px solid gray
+        &:focus
+          outline: none
+          background: darken(white, 2%)
+        &.ng-pristine
+          border-bottom: 1px solid white
+        &.ng-invalid,
+        &.ng-invalid-required
+          border-bottom: 1px solid red
+        &.ng-valid
+          border-bottom: 1px solid white
+
+      label
+        display: block
+        font-size: 11px
+        text-transform: uppercase
+        letter-spacing: 1px
+        margin-bottom: 5px
+
+    .message
+      display: none
+    &.requested
+      .message
+        display: block
+      form
+        display: none
+
+
+.fullsize-slider
+  +pos(fixed, 0,0,0,0)
+  background: white
+  z-index: 200
+  .imago-slider-content
+    +pos()
+    .imago-image-content
+      +pos(absolute, 20px, 20px, 20px, 20px)
+
+
+
+  button.close
+    position: absolute
+    z-index: 1000
+    top: 15px
+    right: 15px
+    background: url("i/x.png") no-repeat
+    background-size: 100% auto
+    width:  50px
+    height: 50px
+    cursor: pointer
+    transition: transform 0.25s ease
+    border: none
+    outline: 0
+    &:hover
+      transform: rotate(90deg)
+
+  .sharewidget
+    position: absolute
+    bottom: 10px
+    right: 10px
+    .action
+      display: inline-block
+      margin-left: 20px
+    .icons
+      display: inline-block
+      margin: 0
+      &.show
+        display: none

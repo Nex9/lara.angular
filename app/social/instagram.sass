@@ -1,0 +1,84 @@
+.imago-instagram-content
+  ul
+    padding: 0
+    margin: 0
+    margin-top: 1em
+    text-align: center
+    overflow: hidden
+    white-space: nowrap
+    display: block
+    // width: $large
+    margin: 0 auto
+    // &.width-full
+    //   width: $large
+    // &.width-windowpadding
+    //   margin-left: 40px
+    //   margin-right: 40px
+    max-width: $large
+    position: relative
+
+    li
+      width:  20%
+      padding-top: 20%
+      height: 0
+      position: relative
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center center
+      transition: all 0.25s ease
+      display: inline-block
+      vertical-align: top
+      box-shadow: 0 0 5px rgba(0,0,0,0.25)
+      white-space: normal
+      > a
+        width: 100%
+        height: 100%
+        display: block
+      // @include max-screen($xlarge)
+      //   width:  320px
+      //   height: 320px
+      // @include max-screen($large)
+      //   width:  220px
+      //   height: 220px
+      // @include max-screen($medium)
+      //   width:  160px
+      //   height: 160px
+      // @include iphone6
+      //   width:  320px
+      //   height: 320px
+      // @include iphone6-plus
+      //   width:  320px
+      //   height: 320px
+
+      &:hover
+        z-index: 1
+        transform: scale(1.1)
+        opacity: 1
+
+      .caption
+        +pos()
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        transition: opacity 0.25s ease
+        opacity: 0
+        width: 100%
+        height: 100%
+        color: white
+        padding: 1em
+
+        .content
+          text-align: center
+          font-size: 16px
+          font-weight: 300
+          max-width: 100%
+          .hashtag,
+          a
+            border-bottom: 1px solid white
+            color: white
+
+      &:hover
+        .caption
+          background: rgba(0,0,0,0.6)
+          opacity: 1
