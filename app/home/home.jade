@@ -1,15 +1,11 @@
 
-//- a(ng-repeat="block in page.data.assets track by block._id"
-//-   du-smooth-scroll du-scrollspy
-//-   href="#{{block.name | normalize}}") {{::block.fields.title.value || block.name}}
-
-
 
 main.home
+
+  textarea {{page.data.assets |json}}
   .row(ng-repeat="block in page.data.assets track by block._id"
     ng-switch="block.types[0]"
     id="{{block.name|normalize}}")
-
 
     .mediaWidget(ng-switch-when="image")
       .media
@@ -19,51 +15,11 @@ main.home
         //- h2 {{::block.fields.title.value}}
         .text(ng-bind-html="::block.fields.text.value")
 
-    .pageWidget(ng-switch-when="page")
-      .media
-        imago-video(data="block" ng-if="block.fields.formats")
-        imago-image(data="block" ng-if="!block.fields.formats")
-      .caption
-        h2 {{::block.fields.title.value}}
-        .text(ng-bind-html="::block.fields.text.value")
-
-    .quoteWidget(ng-switch-when="quote")
-      .quote(ng-bind-html="::block.fields.text.value")
-      .name {{::block.fields.name.value}}
-
-    .instagramWidget(ng-switch-when="instagram")
-      h2 {{::block.fields.title.value}}
-      .text(ng-bind-html="::block.fields.text.value")
-
     .accordionWidget(ng-switch-when="accordion" ng-class="{active: page.accordion === block.name}")
       h2(ng-click="page.accordion = block.name") {{::block.fields.title.value}}
       .text(ng-if="page.accordion === block.name" ng-bind-html="::block.fields.text.value")
 
-    .bioWidget(ng-switch-when="bio")
-      .media
-        imago-video(data="block" ng-if="block.fields.formats")
-        imago-image(data="block" ng-if="!block.fields.formats")
-      .caption
-        .text(ng-bind-html="::block.fields.text.value")
-
-    .instagramWidget(ng-switch-when="instagram")
-      h4.section-heading
-        a(href="https://www.instagram.com/sohodental/") @sohodental
-      div(instagram="{user_id: 'self', count: 5}")
 
   .contactWidget#contact
     h2 Contact me
     a(href="mailto:lara.haemmerle@gmail.com") lara.haemmerle@gmail.com
-
-  //- .twitter
-  //-   a(class="twitter-timeline" href="https://twitter.com/larahaemmerle") Tweets by Lara Haemmerle
-  //-   script(async src="//platform.twitter.com/widgets.js" charset="utf-8")
-
-
-  //- twitter-timeline(
-  //-   twitter-timeline-type='list'
-  //-   twitter-timeline-owner-screen-name='"larahaemmerle"'
-  //-   twitter-timeline-slug='"food-trucks"'
-  //-   )
-  //-   a(class="twitter-timeline" href="https://twitter.com/larahaemmerle") Lara's Tweets
-

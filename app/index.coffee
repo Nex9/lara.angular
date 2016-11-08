@@ -57,56 +57,11 @@ class Setup extends Config
               path: '/home'
               recursive: true
 
-      # .state 'blog',
-      #   url: '/blog'
-      #   templateUrl: '/app/blog/blog.html'
-      #   data:
-      #     pageSize: 50
-      #     query: '/blog'
-      # .state 'blog.paged',
-      #   url: '/page/:page'
-      # .state 'blog.filtered',
-      #   url: '/tags/:tag'
-      # .state 'blog.filtered.paged',
-      #   url: '/page/:page'
 
-      # .state 'contact',
-      #   url: '/contact'
-      #   templateUrl: '/app/page/page.html'
-      #   controller: 'page as page'
-      #   resolve:
-      #     promiseData: (imagoModel) ->
-      #       imagoModel.getData '/contact'
-
-
-      # .state 'shop',
-      #   url: '/shop'
-      #   templateUrl: '/app/shop/shop.html'
-      #   controller: 'shop as page'
-      #   resolve:
-      #     promiseData: (imagoModel) ->
-      #       imagoModel.getData({path: '/shop', recursive: true})
-
-      # .state 'blog',
-      #   url: '/blog'
-      #   templateUrl: '/app/blog/blog.html'
-      #   controller: 'blog as page'
-      # .state 'blog.tags',
-      #   url: '/tag/:tag'
-      # .state 'blog.paged',
-      #   url: '/page/:page'
-
-      .state 'share',
-        url: '/public/*parameter'
-        templateUrl: '/app/share/share.html'
-        controller: 'share as page'
-        resolve:
-          promiseData: (imagoModel, $stateParams) ->
-            imagoModel.getData({path: '/public/' + $stateParams.parameter})
 
 class Load extends Run
 
-  constructor: ($rootScope, $state, $location, $timeout, tenantSettings, imagoUtils, ngProgress) ->
+  constructor: ($rootScope, $state, $location, $timeout, tenantSettings, imagoUtils) ->
     document.documentElement.classList.remove('nojs')
     $timeout ->
       $rootScope.js = true
@@ -120,28 +75,6 @@ class Load extends Run
       else
         $rootScope.navActive =  status
 
-    $rootScope.$on '$stateChangeStart', (evt) ->
-      ngProgress.start()
-
-    # fix adding class to late to main
-    # $rootScope.$on '$stateChangeSuccess', (evt, toState) ->
-    #   path  = toState.url.split('/').join(' ').trim()
-    #   path = 'home' if path is ''
-    #   $rootScope.state = toState.name.split('.').join(' ')
-    #   $rootScope.path  = path
-    #   $rootScope.hideMenu()
-
-    # $rootScope.$on '$viewContentLoaded', (evt, viewConfig) ->
-    #   notLoadedMain = document.querySelector('main:not(.loaded)')
-    #   if $rootScope.state and $rootScope.path
-    #     state = $rootScope.state?.split(' ')
-    #     path = $rootScope.path?.split(' ')
-    #     for item in path
-    #       notLoadedMain.classList.add(item)
-    #     for item in state
-    #       notLoadedMain.classList.add(item)
-    #   notLoadedMain.classList.add('loaded')
-
     # general code
     $rootScope.$on '$stateChangeSuccess', (evt) ->
       $rootScope.urlPath = $location.path()
@@ -151,5 +84,4 @@ class Load extends Run
       $rootScope.state = state
       $rootScope.path  = path
       $rootScope.toggleMenu(false)
-      ngProgress.done()
 
