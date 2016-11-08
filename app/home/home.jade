@@ -2,7 +2,7 @@
 
 main.home
 
-  textarea {{page.data.assets |json}}
+  //- textarea {{page.data.assets |json}}
   .row(ng-repeat="block in page.data.assets track by block._id"
     ng-switch="block.types[0]"
     id="{{block.name|normalize}}")
